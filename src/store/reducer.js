@@ -9,12 +9,34 @@ const reducer = (state = initialState, action = {}) => {
   // Quand le state est undefined (initialisation du store à sa création), on retourne initialState
 
   // On traduit l'action en changement sur le state, et on retourne le nouveau state
-  if (action.type === 'CHANGE_DIRECTION_TO_LEFT') {
-    return {
-      ...state,
-      direction: '270deg',
-    };
+  switch (action.type) {
+    case 'CHANGE_DIRECTION_TO_LEFT':
+      return {
+        ...state,
+        direction: '270deg',
+      };
+    case 'CHANGE_DIRECTION_TO_RIGHT':
+      return {
+        ...state,
+        direction: '90deg',
+      };
+
+    default:
+      break;
   }
+
+  // if (action.type === 'CHANGE_DIRECTION_TO_LEFT') {
+  //   return {
+  //     ...state,
+  //     direction: '270deg',
+  //   };
+  // }
+  // if (action.type === 'CHANGE_DIRECTION_TO_RIGHT') {
+  //   return {
+  //     ...state,
+  //     direction: '90deg',
+  //   };
+  // }
 
   return state;
 };

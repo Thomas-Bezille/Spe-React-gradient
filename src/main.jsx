@@ -5,9 +5,6 @@ import store from './store/index';
 
 import './styles/index.scss';
 
-console.log(store);
-console.log(store.getState());
-
 // == State
 const state = {
   firstColor: '#e367a4',
@@ -91,7 +88,12 @@ document.getElementById('toLeft').addEventListener('click', () => {
 });
 
 document.getElementById('toRight').addEventListener('click', () => {
-  state.direction = '90deg';
+  const action = {
+    type: 'CHANGE_DIRECTION_TO_RIGHT',
+  };
+
+  store.dispatch(action);
+
   renderGradient();
   renderColors();
 });
