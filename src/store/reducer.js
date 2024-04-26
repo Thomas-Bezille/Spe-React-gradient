@@ -39,6 +39,11 @@ const reducer = (state = initialState, action = {}) => {
         firstColor: action.firstColor,
         lastColor: action.lastColor,
       };
+    case 'CHANGE_DIRECTION_DIAG':
+      return {
+        ...state,
+        direction: action.angle,
+      };
 
     default:
       return state;

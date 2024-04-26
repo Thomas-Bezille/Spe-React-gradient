@@ -5,14 +5,6 @@ import store from './store/index';
 
 import './styles/index.scss';
 
-// == State
-const state = {
-  firstColor: '#e367a4',
-  lastColor: '#48b1f3',
-  direction: '90deg',
-  nbColors: 0,
-};
-
 // == Rendu dans le DOM
 function renderNbColors() {
   const { nbColors } = store.getState();
@@ -104,3 +96,25 @@ document.getElementById('toRight').addEventListener('click', () => {
 
   store.dispatch(action);
 });
+
+const handleChangeDiagonal = (event) => {
+  const action = {
+    type: 'CHANGE_DIRECTION_DIAG',
+    angle: event.target.id,
+  };
+
+  store.dispatch(action);
+};
+
+document
+  .getElementById('45deg')
+  .addEventListener('click', handleChangeDiagonal);
+document
+  .getElementById('135deg')
+  .addEventListener('click', handleChangeDiagonal);
+document
+  .getElementById('225deg')
+  .addEventListener('click', handleChangeDiagonal);
+document
+  .getElementById('315deg')
+  .addEventListener('click', handleChangeDiagonal);
