@@ -20,6 +20,12 @@ const reducer = (state = initialState, action = {}) => {
         ...state,
         direction: '90deg',
       };
+    case 'CHANGE_FIRST_COLOR':
+      return {
+        ...state,
+        nbColors: state.nbColors + 1,
+        firstColor: action.color,
+      };
 
     default:
       return state;

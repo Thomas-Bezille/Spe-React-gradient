@@ -61,8 +61,18 @@ document.getElementById('randAll').addEventListener('click', () => {
 });
 
 document.getElementById('randFirst').addEventListener('click', () => {
-  state.nbColors += 1;
-  state.firstColor = randomHexColor();
+  // On calcul une nouvelle couleur
+  const newColor = randomHexColor();
+
+  // On lenvoie dans l'action pour préciser l'intention
+  const action = {
+    type: 'CHANGE_FIRST_COLOR',
+    color: newColor,
+  };
+
+  // On envoie l'action au store
+  store.dispatch(action);
+
   renderNbColors();
   renderGradient();
   renderColors();
