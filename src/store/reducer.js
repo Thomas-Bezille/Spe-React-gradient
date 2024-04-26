@@ -32,6 +32,13 @@ const reducer = (state = initialState, action = {}) => {
         nbColors: state.nbColors + 1,
         lastColor: action.color,
       };
+    case 'CHANGE_ALL_COLORS':
+      return {
+        ...state,
+        nbColors: state.nbColors + 2,
+        firstColor: action.firstColor,
+        lastColor: action.lastColor,
+      };
 
     default:
       return state;

@@ -46,8 +46,16 @@ renderColors();
 
 // == Controls
 document.getElementById('randAll').addEventListener('click', () => {
-  // debug
-  console.log('Random all colors');
+  const newFirstColor = randomHexColor();
+  const newLastColor = randomHexColor();
+
+  const action = {
+    type: 'CHANGE_ALL_COLORS',
+    firstColor: newFirstColor,
+    lastColor: newLastColor,
+  };
+
+  store.dispatch(action);
 
   // data
   state.nbColors += 2;
