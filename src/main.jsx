@@ -79,8 +79,15 @@ document.getElementById('randFirst').addEventListener('click', () => {
 });
 
 document.getElementById('randLast').addEventListener('click', () => {
-  state.nbColors += 1;
-  state.lastColor = randomHexColor();
+  const newColor = randomHexColor();
+
+  const action = {
+    type: 'CHANGE_LAST_COLOR',
+    color: newColor,
+  };
+
+  store.dispatch(action);
+
   renderNbColors();
   renderGradient();
   renderColors();

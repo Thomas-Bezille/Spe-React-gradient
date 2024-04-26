@@ -26,6 +26,12 @@ const reducer = (state = initialState, action = {}) => {
         nbColors: state.nbColors + 1,
         firstColor: action.color,
       };
+    case 'CHANGE_LAST_COLOR':
+      return {
+        ...state,
+        nbColors: state.nbColors + 1,
+        lastColor: action.color,
+      };
 
     default:
       return state;
