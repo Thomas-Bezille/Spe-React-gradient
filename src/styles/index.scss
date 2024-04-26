@@ -1,9 +1,9 @@
-@use "reset";
+@use 'reset';
 
 /* Specific */
 body {
   font-size: 1rem;
-  font-family: "Roboto", sans-serif;
+  font-family: 'Roboto', sans-serif;
   line-height: 1.6;
 }
 
@@ -19,7 +19,7 @@ h6 {
 }
 
 /* Styles - gradient */
-@import "buttons";
+@import './button.scss';
 
 body {
   font-family: sans-serif;
