@@ -44,6 +44,12 @@ renderNbColors();
 renderGradient();
 renderColors();
 
+store.subscribe(() => {
+  renderNbColors();
+  renderGradient();
+  renderColors();
+});
+
 // == Controls
 document.getElementById('randAll').addEventListener('click', () => {
   const newFirstColor = randomHexColor();
@@ -56,16 +62,6 @@ document.getElementById('randAll').addEventListener('click', () => {
   };
 
   store.dispatch(action);
-
-  // data
-  state.nbColors += 2;
-  state.firstColor = randomHexColor();
-  state.lastColor = randomHexColor();
-
-  // ui
-  renderNbColors();
-  renderGradient();
-  renderColors();
 });
 
 document.getElementById('randFirst').addEventListener('click', () => {
@@ -80,10 +76,6 @@ document.getElementById('randFirst').addEventListener('click', () => {
 
   // On envoie l'action au store
   store.dispatch(action);
-
-  renderNbColors();
-  renderGradient();
-  renderColors();
 });
 
 document.getElementById('randLast').addEventListener('click', () => {
@@ -95,10 +87,6 @@ document.getElementById('randLast').addEventListener('click', () => {
   };
 
   store.dispatch(action);
-
-  renderNbColors();
-  renderGradient();
-  renderColors();
 });
 
 document.getElementById('toLeft').addEventListener('click', () => {
@@ -107,9 +95,6 @@ document.getElementById('toLeft').addEventListener('click', () => {
   };
 
   store.dispatch(action);
-
-  renderGradient();
-  renderColors();
 });
 
 document.getElementById('toRight').addEventListener('click', () => {
@@ -118,7 +103,4 @@ document.getElementById('toRight').addEventListener('click', () => {
   };
 
   store.dispatch(action);
-
-  renderGradient();
-  renderColors();
 });
