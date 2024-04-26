@@ -8,8 +8,14 @@ const initialState = {
 const reducer = (state = initialState, action = {}) => {
   // Quand le state est undefined (initialisation du store à sa création), on retourne initialState
 
-  // todo Retourner un nouveau state, résultat de la prise en compte de l'action.
-  // (demande de modification) sur le state d'avant
+  // On traduit l'action en changement sur le state, et on retourne le nouveau state
+  if (action.type === 'CHANGE_DIRECTION_TO_LEFT') {
+    return {
+      ...state,
+      direction: '270deg',
+    };
+  }
+
   return state;
 };
 

@@ -80,7 +80,12 @@ document.getElementById('randLast').addEventListener('click', () => {
 });
 
 document.getElementById('toLeft').addEventListener('click', () => {
-  state.direction = '270deg';
+  const action = {
+    type: 'CHANGE_DIRECTION_TO_LEFT',
+  };
+
+  store.dispatch(action);
+
   renderGradient();
   renderColors();
 });
