@@ -22,23 +22,8 @@ const reducer = (state = initialState, action = {}) => {
       };
 
     default:
-      break;
+      return state;
   }
-
-  // if (action.type === 'CHANGE_DIRECTION_TO_LEFT') {
-  //   return {
-  //     ...state,
-  //     direction: '270deg',
-  //   };
-  // }
-  // if (action.type === 'CHANGE_DIRECTION_TO_RIGHT') {
-  //   return {
-  //     ...state,
-  //     direction: '90deg',
-  //   };
-  // }
-
-  return state;
 };
 
 export default reducer;
