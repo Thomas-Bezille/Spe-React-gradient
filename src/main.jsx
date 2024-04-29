@@ -31,6 +31,15 @@ function renderColors() {
   document.getElementById('colors').innerHTML = result;
 }
 
+const handleChangeDirection = (event) => {
+  const action = {
+    type: 'CHANGE_DIRECTION',
+    angle: event.target.id,
+  };
+
+  store.dispatch(action);
+};
+
 // == Initialisation
 renderNbColors();
 renderGradient();
@@ -81,40 +90,26 @@ document.getElementById('randLast').addEventListener('click', () => {
   store.dispatch(action);
 });
 
-document.getElementById('toLeft').addEventListener('click', () => {
-  const action = {
-    type: 'CHANGE_DIRECTION_TO_LEFT',
-  };
+document
+  .getElementById('270deg')
+  .addEventListener('click', handleChangeDirection);
 
-  store.dispatch(action);
-});
-
-document.getElementById('toRight').addEventListener('click', () => {
-  const action = {
-    type: 'CHANGE_DIRECTION_TO_RIGHT',
-  };
-
-  store.dispatch(action);
-});
-
-const handleChangeDiagonal = (event) => {
-  const action = {
-    type: 'CHANGE_DIRECTION_DIAG',
-    angle: event.target.id,
-  };
-
-  store.dispatch(action);
-};
+document
+  .getElementById('90deg')
+  .addEventListener('click', handleChangeDirection);
 
 document
   .getElementById('45deg')
-  .addEventListener('click', handleChangeDiagonal);
+  .addEventListener('click', handleChangeDirection);
+
 document
   .getElementById('135deg')
-  .addEventListener('click', handleChangeDiagonal);
+  .addEventListener('click', handleChangeDirection);
+
 document
   .getElementById('225deg')
-  .addEventListener('click', handleChangeDiagonal);
+  .addEventListener('click', handleChangeDirection);
+
 document
   .getElementById('315deg')
-  .addEventListener('click', handleChangeDiagonal);
+  .addEventListener('click', handleChangeDirection);

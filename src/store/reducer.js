@@ -10,16 +10,6 @@ const reducer = (state = initialState, action = {}) => {
 
   // On traduit l'action en changement sur le state, et on retourne le nouveau state
   switch (action.type) {
-    case 'CHANGE_DIRECTION_TO_LEFT':
-      return {
-        ...state,
-        direction: '270deg',
-      };
-    case 'CHANGE_DIRECTION_TO_RIGHT':
-      return {
-        ...state,
-        direction: '90deg',
-      };
     case 'CHANGE_FIRST_COLOR':
       return {
         ...state,
@@ -39,7 +29,7 @@ const reducer = (state = initialState, action = {}) => {
         firstColor: action.firstColor,
         lastColor: action.lastColor,
       };
-    case 'CHANGE_DIRECTION_DIAG':
+    case 'CHANGE_DIRECTION':
       return {
         ...state,
         direction: action.angle,
