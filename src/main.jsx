@@ -4,6 +4,12 @@ import { randomHexColor, generateSpanColor } from './utils';
 import store from './store/index';
 
 import './styles/index.scss';
+import {
+  changeAllColors,
+  changeDirection,
+  changeFirstColor,
+  changeLastColor,
+} from './actions/gradient';
 
 // == Rendu dans le DOM
 function renderNbColors() {
@@ -31,15 +37,6 @@ function renderColors() {
   document.getElementById('colors').innerHTML = result;
 }
 
-const handleChangeDirection = (event) => {
-  const action = {
-    type: 'CHANGE_DIRECTION',
-    angle: event.target.id,
-  };
-
-  store.dispatch(action);
-};
-
 // == Initialisation
 renderNbColors();
 renderGradient();
@@ -56,60 +53,50 @@ document.getElementById('randAll').addEventListener('click', () => {
   const newFirstColor = randomHexColor();
   const newLastColor = randomHexColor();
 
-  const action = {
-    type: 'CHANGE_ALL_COLORS',
-    firstColor: newFirstColor,
-    lastColor: newLastColor,
-  };
-
+  const action = changeAllColors(newFirstColor, newLastColor);
   store.dispatch(action);
 });
 
 document.getElementById('randFirst').addEventListener('click', () => {
-  // On calcul une nouvelle couleur
   const newColor = randomHexColor();
 
-  // On lenvoie dans l'action pour préciser l'intention
-  const action = {
-    type: 'CHANGE_FIRST_COLOR',
-    color: newColor,
-  };
-
-  // On envoie l'action au store
+  const action = changeFirstColor(newColor);
   store.dispatch(action);
 });
 
 document.getElementById('randLast').addEventListener('click', () => {
   const newColor = randomHexColor();
 
-  const action = {
-    type: 'CHANGE_LAST_COLOR',
-    color: newColor,
-  };
-
+  const action = changeLastColor(newColor);
   store.dispatch(action);
 });
 
-document
-  .getElementById('270deg')
-  .addEventListener('click', handleChangeDirection);
+document.getElementById('toLeft').addEventListener('click', () => {
+  const action = changeDirection('270deg');
+  store.dispatch(action);
+});
 
-document
-  .getElementById('90deg')
-  .addEventListener('click', handleChangeDirection);
+document.getElementById('toRight').addEventListener('click', () => {
+  const action = changeDirection('90deg');
+  store.dispatch(action);
+});
 
-document
-  .getElementById('45deg')
-  .addEventListener('click', handleChangeDirection);
+document.getElementById('to45').addEventListener('click', () => {
+  const action = changeDirection('45deg');
+  store.dispatch(action);
+});
 
-document
-  .getElementById('135deg')
-  .addEventListener('click', handleChangeDirection);
+document.getElementById('to135').addEventListener('click', () => {
+  const action = changeDirection('135deg');
+  store.dispatch(action);
+});
 
-document
-  .getElementById('225deg')
-  .addEventListener('click', handleChangeDirection);
+document.getElementById('to225').addEventListener('click', () => {
+  const action = changeDirection('225deg');
+  store.dispatch(action);
+});
 
-document
-  .getElementById('315deg')
-  .addEventListener('click', handleChangeDirection);
+document.getElementById('to315').addEventListener('click', () => {
+  const action = changeDirection('315deg');
+  store.dispatch(action);
+});
